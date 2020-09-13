@@ -1,0 +1,35 @@
+server:
+  port: 8322
+
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+  client:
+    service-url:
+      defaultZone: http://localhost:8903/eureka
+    registerWithEureka: true
+    fetchRegistry: true
+    region: default
+
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+  profiles:
+    active: dev
+  application:
+    name: config-server
+  cloud:
+    bus:
+      enabled: true
+    config:
+      discovery:
+        enabled: true
+        service-id: config-server
+      server:
+        git:
+          uri: https://github.com/SekhinSergey/config-repo.git
+          username: SekhinSergey
+          password: 1811199420024494
