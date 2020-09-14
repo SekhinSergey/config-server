@@ -30,4 +30,4 @@ spring:
         git:
           uri: https://github.com/SekhinSergey/config-repo.git
           username: SekhinSergey
-          password: 1811199420024494
+          password:
