@@ -24,7 +24,7 @@ public class CustomGithubPropertyPathNotificationExtractor implements
                 Set<String> paths = new HashSet<>();
                 @SuppressWarnings("unchecked")
                 Collection<Map<String, Object>> commits = (Collection<Map<String, Object>>) request
-                                .get("commits");
+                        .get("commits");
                 for (Map<String, Object> commit : commits) {
                     addAllPaths(paths, commit, "added");
                     addAllPaths(paths, commit, "removed");
@@ -41,6 +41,8 @@ public class CustomGithubPropertyPathNotificationExtractor implements
     private void addAllPaths(Set<String> paths, Map<String, Object> commit, String name) {
         @SuppressWarnings("unchecked")
         Collection<String> files = (Collection<String>) commit.get(name);
-        if (files != null) paths.addAll(files);
+        if (files != null) {
+            paths.addAll(files);
+        }
     }
 }
